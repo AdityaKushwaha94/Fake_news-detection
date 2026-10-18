@@ -7,8 +7,8 @@
 import pandas as pd
 
 # Specify file paths for the datasets
-file_path1 = 'C:\\Users\\Aditya\\OneDrive\\Desktop\\interview_imp_question\\fake.csv'
-file_path2 = 'C:\\Users\\Aditya\\OneDrive\\Desktop\\interview_imp_question\\true.csv'
+file_path1 = 'fake.csv'
+file_path2 = 'true.csv'
 
 # Read the first dataset into a pandas DataFrame (df1)
 df1 = pd.read_csv(file_path1)
@@ -70,7 +70,7 @@ x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
-tfidf_vectorizer = TfidfVectorizer(max_features=10000000)
+tfidf_vectorizer = TfidfVectorizer(max_features=50_000)  # cap the vocabulary; 10M was far beyond the corpus
 X_train_tfidf = tfidf_vectorizer.fit_transform(x_train)
 X_test_tfidf = tfidf_vectorizer.transform(x_test)
 
